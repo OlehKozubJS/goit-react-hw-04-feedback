@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&family=Satisfy&display=swap');
+
+body {
+  background-color: rgb(245, 245, 255);
+}
+
+.feedback {
+  width: 500px;
+}
+
+h3 {
+  margin: 0;
+  font-family: 'Lugrasimo', cursive;
+  font-size: 25px;
+}
+
+button {
+  display: block;
+  box-sizing: border-box;
+  height: 35px;
+  width: 150px;
+  border-radius: 0 25px 0 25px;
+  padding-inline: 25px;
+  font-family: 'Lugrasimo', cursive;
+  font-size: 20px;
+}
+
+button:active {
+  border-radius: 25px 0 25px 0;
+}
