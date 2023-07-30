@@ -3,7 +3,6 @@ import { FeedbackOptions } from './FeedbackOptions';
 import { Statistics } from './Statistics';
 import { Notification } from './Notification';
 import FeedbackStyles from './FeedbackCSS/Feedback.module.css';
-import { useState } from 'react';
 import { useState, useEffect } from 'react';
 
 export const Feedback = () => {
