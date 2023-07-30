@@ -9,6 +9,7 @@ export const Feedback = () => {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
+  const [total, setTotal] = useState(0);
 
   const changeStatistics = option => {
     if (option === 'good') {
@@ -41,7 +42,7 @@ export const Feedback = () => {
       </Section>
 
       <Section title="Statistics">
-        {countTotalFeedback() === 0 ? (
+        {good + neutral + bad === 0 ? (
           <Notification message="There is no feedback" />
         ) : (
           <Statistics
