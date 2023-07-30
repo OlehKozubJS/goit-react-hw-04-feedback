@@ -11,7 +11,9 @@ export const Feedback = () => {
   const [bad, setBad] = useState(0);
 
   changeStatistics = option => {
-    this.setState(state => ({ [option]: state[option] + 1 }));
+    if (option === good) {
+      setGood();
+    }
   };
 
   countTotalFeedback = () => {
