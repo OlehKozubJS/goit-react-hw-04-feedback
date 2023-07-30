@@ -10,7 +10,7 @@ export const Feedback = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-  changeStatistics = option => {
+  const changeStatistics = option => {
     if (option === 'good') {
       setGood(good + 1);
     }
@@ -22,11 +22,11 @@ export const Feedback = () => {
     }
   };
 
-  countTotalFeedback = () => {
+  const countTotalFeedback = () => {
     return good + neutral + bad;
   };
 
-  countPositiveFeedbackPercentage = () => {
+  const countPositiveFeedbackPercentage = () => {
     const sum = this.countTotalFeedback();
     return Math.floor((good / sum) * 100);
   };
@@ -36,7 +36,7 @@ export const Feedback = () => {
       <Section title="Please leave feedback">
         <FeedbackOptions
           options={Object.keys(this.state)}
-          onLeaveFeedback={this.changeStatistics}
+          onLeaveFeedback={changeStatistics}
         />
       </Section>
 
