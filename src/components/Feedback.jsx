@@ -4,6 +4,7 @@ import { Statistics } from './Statistics';
 import { Notification } from './Notification';
 import FeedbackStyles from './FeedbackCSS/Feedback.module.css';
 import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export const Feedback = () => {
   const [good, setGood] = useState(0);
@@ -49,7 +50,7 @@ export const Feedback = () => {
             good={good}
             neutral={neutral}
             bad={bad}
-            total={countTotalFeedback()}
+            total={setTotal(good + neutral + bad)}
             positivePercentage={countPositiveFeedbackPercentage()}
           />
         )}
