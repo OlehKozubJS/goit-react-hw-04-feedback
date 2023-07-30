@@ -24,15 +24,13 @@ export const Feedback = () => {
     }
   };
 
-  const countTotalFeedback = () => {
-    return good + neutral + bad;
-  };
-
+  useEffect(() => setTotal(good + neutral + bad), [good, neutral, bad]);
+  /*
   const countPositiveFeedbackPercentage = () => {
     const sum = this.countTotalFeedback();
     return Math.floor((good / sum) * 100);
   };
-
+*/
   return (
     <div className={FeedbackStyles.feedback}>
       <Section title="Please leave feedback">
