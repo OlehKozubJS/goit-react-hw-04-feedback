@@ -41,7 +41,7 @@ export const Feedback = () => {
       </Section>
 
       <Section title="Statistics">
-        {good + neutral + bad === 0 ? (
+        {total === 0 ? (
           <Notification message="There is no feedback" />
         ) : (
           <Statistics
