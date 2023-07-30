@@ -11,8 +11,14 @@ export const Feedback = () => {
   const [bad, setBad] = useState(0);
 
   changeStatistics = option => {
-    if (option === good) {
-      setGood();
+    if (option === 'good') {
+      setGood(good + 1);
+    }
+    if (option === 'neutral') {
+      setNeutral(neutral + 1);
+    }
+    if (option === 'bad') {
+      setBad(bad + 1);
     }
   };
 
