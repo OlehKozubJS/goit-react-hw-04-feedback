@@ -49,7 +49,7 @@ export const Feedback = () => {
             good={good}
             neutral={neutral}
             bad={bad}
-            total={setTotal(good + neutral + bad)}
+            total={total}
             positivePercentage={countPositiveFeedbackPercentage()}
           />
         )}
