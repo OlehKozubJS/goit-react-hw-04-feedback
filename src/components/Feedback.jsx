@@ -51,7 +51,7 @@ export const Feedback = () => {
             neutral={neutral}
             bad={bad}
             total={total}
-            positivePercentage={countPositiveFeedbackPercentage()}
+            positivePercentage={positivePercentage}
           />
         )}
       </Section>
