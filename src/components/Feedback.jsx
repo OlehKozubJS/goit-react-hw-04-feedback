@@ -25,10 +25,10 @@ export const Feedback = () => {
   };
 
   useEffect(() => {
+    console.log(`${good} ${neutral} ${bad}`);
     setTotal(good + neutral + bad);
-    console.log(good / total);
     setPositivePercentage(Math.floor((good / total) * 100));
-  }, [good, neutral, bad]);
+  }, [good, neutral, bad, total]);
 
   return (
     <div className={FeedbackStyles.feedback}>
