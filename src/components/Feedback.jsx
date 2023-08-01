@@ -13,11 +13,9 @@ export const Feedback = () => {
   const changeStatistics = option => {
     if (option === 'good') {
       setGood(prevState => prevState + 1);
-    }
-    if (option === 'neutral') {
+    } else if (option === 'neutral') {
       setNeutral(prevState => prevState + 1);
-    }
-    if (option === 'bad') {
+    } else if (option === 'bad') {
       setBad(prevState => prevState + 1);
     }
   };
