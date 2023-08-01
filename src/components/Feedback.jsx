@@ -3,28 +3,32 @@ import { FeedbackOptions } from './FeedbackOptions';
 import { Statistics } from './Statistics';
 import { Notification } from './Notification';
 import FeedbackStyles from './FeedbackCSS/Feedback.module.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export const Feedback = () => {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
-  const [total, setTotal] = useState(0);
-  const [positivePercentage, setPositivePercentage] = useState(0);
 
   const changeStatistics = option => {
-    const setOption = {
-      good: setGood,
-      neutral: setNeutral,
-      bad: setBad,
-    };
-    setOption[option](prevState => prevState + 1);
+    if (option === 'good') {
+      setGood(prevState => prevState + 1);
+    }
+    if (option === 'neutral') {
+      setNeutral(prevState => prevState + 1);
+    }
+    if (option === 'bad') {
+      setBad(prevState => prevState + 1);
+    }
   };
 
-  useEffect(() => {
-    setTotal(good + neutral + bad);
-    setPositivePercentage(Math.floor((good / total) * 100));
-  }, [good, neutral, bad, total]);
+  const setTotal = () => {
+    return good + neutral + bad;
+  };
+
+  const setPositivePercentage = () => {
+    return Math.floor((good / setTotal()) * 100);
+  };
 
   return (
     <div className={FeedbackStyles.feedback}>
@@ -36,15 +40,15 @@ export const Feedback = () => {
       </Section>
 
       <Section title="Statistics">
-        {total === 0 ? (
+        {setTotal() === 0 ? (
           <Notification message="There is no feedback" />
         ) : (
           <Statistics
             good={good}
             neutral={neutral}
             bad={bad}
-            total={total}
-            positivePercentage={positivePercentage}
+            total={setTotal()}
+            positivePercentage={setPositivePercentage()}
           />
         )}
       </Section>
