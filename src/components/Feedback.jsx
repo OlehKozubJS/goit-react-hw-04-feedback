@@ -13,19 +13,15 @@ export const Feedback = () => {
   const [positivePercentage, setPositivePercentage] = useState(0);
 
   const changeStatistics = option => {
-    if (option === 'good') {
-      setGood(prevState => prevState + 1);
-    }
-    if (option === 'neutral') {
-      setNeutral(prevState => prevState + 1);
-    }
-    if (option === 'bad') {
-      setBad(prevState => prevState + 1);
-    }
+    const setOption = {
+      good: setGood,
+      neutral: setNeutral,
+      bad: setBad,
+    };
+    setOption[option](prevState => prevState + 1);
   };
 
   useEffect(() => {
-    console.log(`${good} ${neutral} ${bad}`);
     setTotal(good + neutral + bad);
     setPositivePercentage(Math.floor((good / total) * 100));
   }, [good, neutral, bad, total]);
